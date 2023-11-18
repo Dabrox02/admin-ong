@@ -1,7 +1,6 @@
 package com.proyectouts.adminong.repositories.entities;
 
-import java.util.Date;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,18 +10,22 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "pago")
-public class PagoEntity{
-
+@Data
+@Table(name = "socio")
+public class SocioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date fechaPago;
-    private String tipoCuota;
-    private double valorCuota;
-    @JoinColumn(name = "id_socio")
+    @Column(unique = true)
+    private String dni;
+    private String nombres;
+    private String apellidos;
+    @Column(unique = true)
+    private String telefono;
+    @Column(unique = true)
+    private String email;
+    @JoinColumn(name = "id_sede")
     @ManyToOne
-    private SocioEntity socio;
+    private SedeEntity sede;
 }
