@@ -26,7 +26,31 @@ INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-0
 INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2023-02-15', 'media', 20, 2);
 INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-09-07', 'maxima', 30, 2);
 
+-- Insertar datos para la tabla 'voluntario'
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('15308944-2', 'Alan', 'Mullins', '1-565-354-2344', 'justo@google.com', 'Si', 'lectus. Cum', 'administrativo', 1);
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('28356681-1', 'Idona', 'House', '1-938-871-8582', 'varius.et.euismod@aol.edu', 'Si', 'malesuada malesuada.', 'sanitario', 2);
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('3341180-4', 'Veronica', 'James', '(685) 636-9111', 'praesent.interdum.ligula@outlook.ca', 'No', 'parturient', 'sanitario', 3);
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('36563665-6', 'Kane', 'Ewing', '1-121-474-1744', 'malesuada@aol.ca', 'Si', 'mi fringilla', 'administrativo', 3);
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('14803543-1', 'Grady', 'Stewart', '1-732-376-4825', 'adipiscing.elit@hotmail.couk', 'Si', 'Curae', 'administrativo', 5);
+
+-- Insertar datos para la tabla 'refugio'
+INSERT INTO refugio (pais, estado, direccion) VALUES ('China', 'Gyeonggi', '6002 Luctus Rd.');
+INSERT INTO refugio (pais, estado, direccion) VALUES ('Austria', 'Gavleborgs lan', 'Ap #442-169 Non Rd.');
+INSERT INTO refugio (pais, estado, direccion) VALUES ('New Zealand', 'Jalisco', '7494 Aliquet. Road');
+INSERT INTO refugio (pais, estado, direccion) VALUES ('Nigeria', 'Zamboanga Peninsula', 'P.O. Box 282, 2708 Mauris St.');
+INSERT INTO refugio (pais, estado, direccion) VALUES ('South Korea', 'North Chungcheong', 'Ap #653-9230 Lacus. Rd.');
+
+
+-- Insertar datos para la tabla 'envio'
+INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2022-12-27', 3);
+INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2023-06-09', 2);
+INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2023-09-03', 5);
+INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2024-06-14', 2);
+INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2024-03-19', 1);
+
+
 
 -- SELECT * FROM SEDE SE JOIN ORGANIZACION ORG ON SE.ID_ORGANIZACION = ORG.ID;
 -- SELECT * FROM SOCIO SOC JOIN SEDE SE ON SOC.ID_SEDE = SE.ID;
 -- SELECT * FROM PAGO PAG JOIN SOCIO SOC ON PAG.ID_SOCIO = SOC.ID;
+
