@@ -1,5 +1,9 @@
 package com.proyectouts.adminong.repositories;
 
-public interface EnvioRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.proyectouts.adminong.repositories.entities.EnvioEntity;
+
+public interface EnvioRepository extends CrudRepository<EnvioEntity, Long>{
     
 }
