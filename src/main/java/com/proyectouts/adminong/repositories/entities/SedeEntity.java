@@ -1,10 +1,13 @@
 package com.proyectouts.adminong.repositories.entities;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -23,4 +26,6 @@ public class SedeEntity {
     @JoinColumn(name = "id_organizacion")
     @ManyToOne
     private OrganizacionEntity organizacion;
+    @ManyToMany(mappedBy = "sedes")
+    private Set<EnvioEntity> envios;
 }

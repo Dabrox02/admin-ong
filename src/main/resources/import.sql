@@ -48,6 +48,32 @@ INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2023-09-03', 5);
 INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2024-06-14', 2);
 INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2024-03-19', 1);
 
+-- Insertar datos para la tabla 'sede_envio'
+INSERT INTO sede_envio (id_envio, id_sede) VALUES (1, 1);
+INSERT INTO sede_envio (id_envio, id_sede) VALUES (2, 1);
+INSERT INTO sede_envio (id_envio, id_sede) VALUES (3, 1);
+INSERT INTO sede_envio (id_envio, id_sede) VALUES (5, 2);
+INSERT INTO sede_envio (id_envio, id_sede) VALUES (4, 3);
+
+
+-- Insertar datos para la tabla 'carga'
+INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('material', 'granos, harinas', 7, NULL, 1);
+INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('humanitario', '10 medicos, 20 enfermeros', NULL, NULL, 2);
+INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('material', 'antibioticos', NULL, 500, 3);
+INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('material', 'frutas', 43, NULL, 4);
+INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('humanitario', '5 ingenieros', NULL, NULL, 5);
+
+-- Insertar datos para la tabla 'mision'
+INSERT INTO mision (id_voluntario, id_carga) VALUES (1, 2);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (1, 5);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (2, 2);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (2, 5);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (3, 2);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (4, 5);
+INSERT INTO mision (id_voluntario, id_carga) VALUES (5, 2);
+
+
+
 
 
 -- SELECT * FROM SEDE SE JOIN ORGANIZACION ORG ON SE.ID_ORGANIZACION = ORG.ID;
