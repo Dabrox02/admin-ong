@@ -19,12 +19,19 @@ INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('2
 INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('22246549-4', 'Jasper', 'Gamble', '1-914-758-7254', 'ligula.aliquam.erat@google.net', 3);
 INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('17158299-7', 'Odette', 'Meadows', '(797) 914-8381', 'ut.cursus.luctus@icloud.org', 1);
 
+-- Insertar datos para la tabla 'socio'
+INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco A', '123456789', 1);
+INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco B', '987654321', 2);
+INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco C', '555555555', 3);
+INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco D', '777777777', 4);
+INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco E', '999999999', 5);
+
 -- Insertar datos para la tabla 'pago'
-INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-02-25', 'minima', 10, 1);
-INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-09-22', 'minima', 10, 2);
-INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-03-23', 'minima', 10, 4);
-INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2023-02-15', 'media', 20, 2);
-INSERT INTO pago (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-09-07', 'maxima', 30, 2);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-02-25', 'minima', 10, 1);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-09-22', 'minima', 10, 2);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-03-23', 'minima', 10, 4);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2023-02-15', 'media', 20, 2);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-09-07', 'maxima', 30, 2);
 
 -- Insertar datos para la tabla 'voluntario'
 INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('15308944-2', 'Alan', 'Mullins', '1-565-354-2344', 'justo@google.com', 'Si', 'lectus. Cum', 'administrativo', 1);
@@ -54,7 +61,6 @@ INSERT INTO sede_envio (id_envio, id_sede) VALUES (2, 1);
 INSERT INTO sede_envio (id_envio, id_sede) VALUES (3, 1);
 INSERT INTO sede_envio (id_envio, id_sede) VALUES (5, 2);
 INSERT INTO sede_envio (id_envio, id_sede) VALUES (4, 3);
-
 
 -- Insertar datos para la tabla 'carga'
 INSERT INTO carga (tipo_carga, descripcion, toneladas, unidades, id_envio) VALUES ('material', 'granos, harinas', 7, NULL, 1);

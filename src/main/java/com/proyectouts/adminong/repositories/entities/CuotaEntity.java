@@ -13,8 +13,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "pago")
-public class PagoEntity{
+@Table(name = "cuota")
+public class CuotaEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
