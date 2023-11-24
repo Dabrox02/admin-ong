@@ -20,11 +20,13 @@ public class SedeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombreDirector;
+    @ManyToOne
+    @JoinColumn(name = "id_voluntario_jefe", nullable = true)
+    private VoluntarioEntity voluntarioJefe;
     private String ciudad;
     private String pais;
-    @JoinColumn(name = "id_organizacion")
     @ManyToOne
+    @JoinColumn(name = "id_organizacion")
     private OrganizacionEntity organizacion;
     @ManyToMany(mappedBy = "sedes")
     private Set<EnvioEntity> envios;

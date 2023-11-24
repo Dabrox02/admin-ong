@@ -24,9 +24,9 @@ public class CargaEntity {
     private String tipoCarga;
     private String descripcion;
     @Column(nullable = true)
-    private int toneladas;
+    private int cantidad;
     @Column(nullable = true)
-    private int unidades;
+    private String unidadMedida;
     @ManyToOne()
     @JoinColumn(name = "id_envio")
     private EnvioEntity envio;
