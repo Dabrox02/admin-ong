@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectouts.adminong.config.SocioBancoCuotaDTORequest;
+import com.proyectouts.adminong.dto.SocioCuotaDTO;
 import com.proyectouts.adminong.dto.SocioDTOBancoCuota;
 import com.proyectouts.adminong.services.SocioService;
 
@@ -25,10 +27,14 @@ public class SocioController {
         return socioService.findAll();
     }
 
+    @GetMapping("/{tipoCuota}")
+    public SocioCuotaDTO findSociosByCuota(@PathVariable String tipoCuota){
+        return socioService.findSociosByCuota(tipoCuota);
+    }
+
     @PostMapping("/")
     public void save(@RequestBody SocioBancoCuotaDTORequest request){
         socioService.save(request.getSocioDTO(), request.getBancoDTO(), request.getCuotaDTO());
     }
 
-    
 }

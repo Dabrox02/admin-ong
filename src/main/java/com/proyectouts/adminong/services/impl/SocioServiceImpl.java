@@ -12,6 +12,7 @@ import com.proyectouts.adminong.config.SocioDTOBancoCuotaConverter;
 import com.proyectouts.adminong.config.SocioDTOConverter;
 import com.proyectouts.adminong.dto.BancoDTO;
 import com.proyectouts.adminong.dto.CuotaDTO;
+import com.proyectouts.adminong.dto.SocioCuotaDTO;
 import com.proyectouts.adminong.dto.SocioDTO;
 import com.proyectouts.adminong.dto.SocioDTOBancoCuota;
 import com.proyectouts.adminong.repositories.SedeRepository;
@@ -104,6 +105,18 @@ public class SocioServiceImpl implements SocioService{
 
             return socioDTOBancoCuota;
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public SocioCuotaDTO findSociosByCuota(String tipoCuota) {
+        SocioCuotaDTO socioCuotaDTO = new SocioCuotaDTO();
+        socioCuotaDTO.setTipoCuota(tipoCuota);
+        List<SocioDTO> sociosDTO = socioRepository.findSociosByTipoCuota(tipoCuota).stream()
+        .map(socioEntity -> {
+            return socioDTOConverter.convertToDTO(socioEntity);
+        }).collect(Collectors.toList());
+        socioCuotaDTO.setSocios(sociosDTO);
+        return socioCuotaDTO;
     }
     
 
