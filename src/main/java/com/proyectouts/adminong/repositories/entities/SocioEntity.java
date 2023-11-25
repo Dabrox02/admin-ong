@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "socio")
 public class SocioEntity extends PersonaEntity {
-    @JoinColumn(name = "id_sede")
     @ManyToOne
+    @JoinColumn(name = "id_sede")
     private SedeEntity sede;
 }
