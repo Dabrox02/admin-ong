@@ -3,6 +3,8 @@ package com.proyectouts.adminong.repositories.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,5 +25,6 @@ public class OrganizacionEntity implements Serializable{
     private Long id;
     private String nombre;
     @OneToMany(mappedBy = "organizacion", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @JsonManagedReference
     private List<SedeEntity> sedes;
 }

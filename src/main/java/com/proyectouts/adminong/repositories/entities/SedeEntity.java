@@ -3,6 +3,9 @@ package com.proyectouts.adminong.repositories.entities;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,9 +31,11 @@ public class SedeEntity {
     private String ciudad;
     private String pais;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_voluntario_jefe", nullable = true)
     private VoluntarioEntity voluntarioJefe;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_organizacion")
     private OrganizacionEntity organizacion;
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -41,5 +46,6 @@ public class SedeEntity {
     )
     private Set<EnvioEntity> envios;
     @OneToMany(mappedBy = "sede", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @JsonManagedReference
     private List<SocioEntity> socios;
 }
