@@ -1,7 +1,5 @@
 package com.proyectouts.adminong.repositories.entities;
 
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class CuotaEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date fechaPago;
+    private String fechaPago;
     private String tipoCuota;
     private double valorCuota;
     @JoinColumn(name = "id_socio")

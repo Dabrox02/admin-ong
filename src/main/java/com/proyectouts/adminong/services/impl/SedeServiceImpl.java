@@ -35,7 +35,6 @@ public class SedeServiceImpl implements SedeService{
     @Transactional
     public void save(SedeDTO sedeDTO) {
         SedeEntity sedeEntity = sedeDTOConverter.convertToEntity(sedeDTO);
-
         VoluntarioEntity voluntarioJefe = voluntarioRepository.findById(sedeDTO.getVoluntarioJefeId()).orElse(null);
         OrganizacionEntity organizacion = organizacionRepository.findById(sedeDTO.getOrganizacionId()).orElse(null);
 

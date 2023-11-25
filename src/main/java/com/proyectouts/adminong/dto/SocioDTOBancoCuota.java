@@ -1,9 +1,11 @@
 package com.proyectouts.adminong.dto;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
-public class SocioDTO {
+public class SocioDTOBancoCuota {
     
     private Long id;
     private String dni;
@@ -11,6 +13,8 @@ public class SocioDTO {
     private String apellidos;
     private String telefono;
     private String email;
-    private Long sedeId;
+    private SedeDTO sede;
+    private List<BancoDTO> bancos;
+    private List<CuotaDTO> cuotas;
 
 }
