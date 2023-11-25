@@ -30,6 +30,11 @@ public class SedeController {
         return sedeService.findAll();
     }
 
+    @GetMapping("/{idSede}")
+    public SedeEntity findById(@PathVariable Long idSede){
+        return sedeService.findById(idSede);        
+    }
+
     @PostMapping("/")
     public void save(@RequestBody SedeDTO sedeDTO){
         sedeService.save(sedeDTO);
