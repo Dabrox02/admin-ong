@@ -24,26 +24,9 @@
 - Listar por profesion
 - Listar por sede
 
-### ENVIOS DE AYUDA
-- Registrar envios
-- Consultar x id
-- Actualizar x id
-- Eliminar por id
-- Listar por destino 
-- Listar por fecha salida
-
-### AYUDA MATERIAL
-- Registrar ayuda 
-- Consultar x id
-- Actualizar x id
-- Listar por tipo material
-
-### AYUDA HUMANITARIA
-- Registrar ayuda
-- Consultar x id
-- Actualizar x id
-- Eliminar por id
-- Listar ayuda por profesion de los voluntarios.
+### ENVIOS AYUDA
+- Registrar un envio
+- Consultar x id, con los datos completos de las sedes y refugios.
 
 
 ## DIAGRAMA RELACIONAL
