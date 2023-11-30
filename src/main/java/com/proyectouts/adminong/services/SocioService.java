@@ -19,4 +19,6 @@ public interface SocioService {
     SocioDTO findById(Long idSocio);
 
     void deleteById(Long idSocio);
+
+    SocioDTO updateById(SocioDTO socioDTO);
 }
