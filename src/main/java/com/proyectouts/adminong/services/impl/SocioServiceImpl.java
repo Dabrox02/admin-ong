@@ -127,6 +127,11 @@ public class SocioServiceImpl implements SocioService{
         }
         return null;
     }
+
+    @Override
+    public void deleteById(Long idSocio) {
+        socioRepository.deleteById(idSocio);
+    }
     
 
 

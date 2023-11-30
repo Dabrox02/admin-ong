@@ -14,7 +14,7 @@
 - Registrar - LISTA
 - Consultar x id - LISTA
 - Actualizar x id
-- Eliminar un socio
+- Eliminar un socio - LISTA
 - Listar por tipo de cuota - LISTA
 
 ### VOLUNTARIO

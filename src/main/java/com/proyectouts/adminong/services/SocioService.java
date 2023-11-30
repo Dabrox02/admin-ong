@@ -17,4 +17,6 @@ public interface SocioService {
     SocioCuotaDTO findSociosByCuota(String tipoCuota);
 
     SocioDTO findById(Long idSocio);
+
+    void deleteById(Long idSocio);
 }
