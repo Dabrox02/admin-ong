@@ -3,18 +3,19 @@
 ## Requisitos Funcionales
 
 ### SEDE
-- Registrar   -LISTA
-- Consultar x id sedes   -LISTA
-- Actualizar x id sede   -LISTA
-- Eliminar x id sede  - LISTA
-- Listar todas las sedes   - LISTA
+- Registrar - LISTA
+- Consultar x id sedes - LISTA
+- Actualizar x id sede - LISTA
+- Eliminar x id sede - LISTA
+- Listar todas las sedes - LISTA
 
 ### SOCIO
-- Registrar  - LISTA
-- Consultar x id   
+- Crear Socio - LISTA
+- Registrar - LISTA
+- Consultar x id - LISTA
 - Actualizar x id
 - Eliminar un socio
-- Listar por tipo de cuota  - LISTA
+- Listar por tipo de cuota - LISTA
 
 ### VOLUNTARIO
 - Registrar

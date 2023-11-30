@@ -121,8 +121,11 @@ public class SocioServiceImpl implements SocioService{
 
     @Override
     public SocioDTO findById(Long idSocio) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        SocioEntity socio = socioRepository.findById(idSocio).orElse(null);
+        if(socio != null){
+            return socioDTOConverter.convertToDTO(socio);
+        }
+        return null;
     }
     
 

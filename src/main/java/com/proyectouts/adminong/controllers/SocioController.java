@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectouts.adminong.config.SocioBancoCuotaDTORequest;
 import com.proyectouts.adminong.dto.SocioCuotaDTO;
+import com.proyectouts.adminong.dto.SocioDTO;
 import com.proyectouts.adminong.dto.SocioDTOBancoCuota;
 import com.proyectouts.adminong.services.SocioService;
 
@@ -27,7 +28,12 @@ public class SocioController {
         return socioService.findAll();
     }
 
-    @GetMapping("/{tipoCuota}")
+    @GetMapping("/id/{idSocio}")
+    public SocioDTO findSocioById(@PathVariable Long idSocio){
+        return socioService.findById(idSocio);
+    }
+
+    @GetMapping("/cuota/{tipoCuota}")
     public SocioCuotaDTO findSociosByCuota(@PathVariable String tipoCuota){
         return socioService.findSociosByCuota(tipoCuota);
     }
@@ -36,5 +42,7 @@ public class SocioController {
     public void save(@RequestBody SocioBancoCuotaDTORequest request){
         socioService.save(request.getSocioDTO(), request.getBancoDTO(), request.getCuotaDTO());
     }
+
+
 
 }
