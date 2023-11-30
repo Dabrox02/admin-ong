@@ -4,6 +4,7 @@ package com.proyectouts.adminong.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class SedeController {
     }
 
     @DeleteMapping("/{idSede}")
-    public void deleteById(@PathVariable Long idSede){
+    public void deleteById(@PathVariable Long idSede) throws NotFoundException{
         sedeService.deleteById(idSede);        
     }
 

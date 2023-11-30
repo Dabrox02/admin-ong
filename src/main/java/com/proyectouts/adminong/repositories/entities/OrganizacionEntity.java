@@ -24,7 +24,7 @@ public class OrganizacionEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    @OneToMany(mappedBy = "organizacion", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "organizacion", cascade = CascadeType.REMOVE, fetch=FetchType.LAZY)
     @JsonManagedReference
     private List<SedeEntity> sedes;
 }

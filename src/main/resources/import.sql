@@ -18,13 +18,13 @@ INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad
 INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('3341180-4', 'Veronica', 'James', '(685) 636-9111', 'praesent.interdum.ligula@outlook.ca', 'No', 'parturient', 'sanitario', 3);
 INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('36563665-6', 'Kane', 'Ewing', '1-121-474-1744', 'malesuada@aol.ca', 'Si', 'mi fringilla', 'administrativo', 3);
 INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('14803543-1', 'Grady', 'Stewart', '1-732-376-4825', 'adipiscing.elit@hotmail.couk', 'Si', 'Curae', 'administrativo', 5);
+INSERT INTO voluntario (dni, nombres, apellidos, telefono, email, disponibilidad, profesion, tipo_voluntario, id_sede) VALUES ('14789856-1', 'Gody', 'McOka', '1-732-376-7899', 'oka.mact@hotmail.couk', 'Si', 'Curae', 'administrativo', 1);
 
 UPDATE sede SET id_voluntario_jefe = 2 WHERE sede.id = 1;
 UPDATE sede SET id_voluntario_jefe = 3 WHERE sede.id = 2;
 UPDATE sede SET id_voluntario_jefe = 1 WHERE sede.id = 3;
 UPDATE sede SET id_voluntario_jefe = 5 WHERE sede.id = 4;
 UPDATE sede SET id_voluntario_jefe = 4 WHERE sede.id = 5;
-
 
 -- Insertar datos para la tabla 'socio'
 INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('37496228-0', 'Alisa', 'Barber', '(257) 897-7629', 'metus.facilisis@hotmail.edu', 5);
@@ -33,20 +33,19 @@ INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('2
 INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('22246549-4', 'Jasper', 'Gamble', '1-914-758-7254', 'ligula.aliquam.erat@google.net', 3);
 INSERT INTO socio (dni, nombres, apellidos, telefono, email, id_sede) VALUES ('17158299-7', 'Odette', 'Meadows', '(797) 914-8381', 'ut.cursus.luctus@icloud.org', 1);
 
--- Insertar datos para la tabla 'socio'
+-- -- Insertar datos para la tabla 'socio'
 INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco A', '123456789', 1);
 INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco B', '987654321', 2);
 INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco C', '555555555', 3);
 INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco D', '777777777', 4);
 INSERT INTO banco (nombre_banco, numero_cuenta, id_socio) VALUES ('Banco E', '999999999', 5);
 
--- Insertar datos para la tabla 'pago'
+-- -- Insertar datos para la tabla 'pago'
 INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-02-25', 'minima', 10, 1);
 INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2022-09-22', 'minima', 10, 2);
-INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-03-23', 'minima', 10, 4);
-INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2023-02-15', 'media', 20, 2);
-INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-09-07', 'maxima', 30, 2);
-
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-03-23', 'minima', 10, 3);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2023-02-15', 'media', 20, 4);
+INSERT INTO cuota (fecha_pago, tipo_cuota, valor_cuota, id_socio) VALUES ('2024-09-07', 'maxima', 30, 5);
 
 -- Insertar datos para la tabla 'refugio'
 INSERT INTO refugio (pais, estado, direccion) VALUES ('China', 'Gyeonggi', '6002 Luctus Rd.');
@@ -54,7 +53,6 @@ INSERT INTO refugio (pais, estado, direccion) VALUES ('Austria', 'Gavleborgs lan
 INSERT INTO refugio (pais, estado, direccion) VALUES ('New Zealand', 'Jalisco', '7494 Aliquet. Road');
 INSERT INTO refugio (pais, estado, direccion) VALUES ('Nigeria', 'Zamboanga Peninsula', 'P.O. Box 282, 2708 Mauris St.');
 INSERT INTO refugio (pais, estado, direccion) VALUES ('South Korea', 'North Chungcheong', 'Ap #653-9230 Lacus. Rd.');
-
 
 -- Insertar datos para la tabla 'envio'
 INSERT INTO envio (fecha_salida, id_refugio) VALUES ('2022-12-27', 3);
@@ -85,5 +83,3 @@ INSERT INTO mision (id_voluntario, id_carga) VALUES (2, 5);
 INSERT INTO mision (id_voluntario, id_carga) VALUES (3, 2);
 INSERT INTO mision (id_voluntario, id_carga) VALUES (4, 5);
 INSERT INTO mision (id_voluntario, id_carga) VALUES (5, 2);
-
-

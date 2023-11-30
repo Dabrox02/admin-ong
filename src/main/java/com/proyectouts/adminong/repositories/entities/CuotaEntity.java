@@ -20,7 +20,8 @@ public class CuotaEntity{
     private String fechaPago;
     private String tipoCuota;
     private double valorCuota;
+
     @JoinColumn(name = "id_socio")
-    @ManyToOne
+    @ManyToOne()
     private SocioEntity socio;
 }

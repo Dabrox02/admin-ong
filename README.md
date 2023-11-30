@@ -6,7 +6,7 @@
 - Registrar   -LISTA
 - Consultar x id sedes   -LISTA
 - Actualizar x id sede   -LISTA
-- Eliminar x id sede  
+- Eliminar x id sede  - LISTA
 - Listar todas las sedes   - LISTA
 
 ### SOCIO

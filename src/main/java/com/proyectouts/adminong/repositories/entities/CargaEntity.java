@@ -2,6 +2,7 @@ package com.proyectouts.adminong.repositories.entities;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,10 +28,12 @@ public class CargaEntity {
     private int cantidad;
     @Column(nullable = true)
     private String unidadMedida;
+    
     @ManyToOne()
     @JoinColumn(name = "id_envio")
     private EnvioEntity envio;
-    @ManyToMany()
+
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "mision",
         joinColumns = {@JoinColumn(name = "id_voluntario")},

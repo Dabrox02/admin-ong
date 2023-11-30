@@ -23,10 +23,12 @@ public class EnvioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date fechaSalida;
-    @ManyToOne()
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_refugio")
     private RefugioEntity refugio;
-    @ManyToMany(cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+
+    @ManyToMany()
     @JoinTable(
         name = "sede_envio",
         joinColumns = {@JoinColumn(name = "id_envio")},

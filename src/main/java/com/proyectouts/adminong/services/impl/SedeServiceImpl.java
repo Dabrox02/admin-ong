@@ -61,10 +61,17 @@ public class SedeServiceImpl implements SedeService{
     @Override
     @Transactional
     public void deleteById(Long idSede) {
-        SedeEntity sede = sedeRepository.findById(idSede).orElseThrow();
-        sede.getEnvios().removeAll(sede.getEnvios());
-        sede.getSocios().removeAll(sede.getSocios());
-        sedeRepository.delete(sede);
+        SedeEntity sede = sedeRepository.findById(idSede).orElse(null);
+        System.out.println("=============================== SEDE ==================================");
+        System.out.println(sede.getEnvios());
+        if(sede != null){
+            List<VoluntarioEntity> voluntarios = sede.getVoluntarios();
+            for (VoluntarioEntity voluntario : voluntarios) {
+                voluntario.setSede(null);
+            }
+            sedeRepository.deleteAllEnvios(sede.getId());
+            sedeRepository.deleteById(sede.getId());
+        }
     }
 
     public SedeEntity updateById(SedeDTO sedeDTO) { 

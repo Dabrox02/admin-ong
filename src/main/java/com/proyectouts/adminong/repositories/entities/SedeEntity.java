@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,22 +29,30 @@ public class SedeEntity {
     private Long id;
     private String ciudad;
     private String pais;
-    @ManyToOne
+
+    @ManyToOne()
     @JsonBackReference
     @JoinColumn(name = "id_voluntario_jefe", nullable = true)
     private VoluntarioEntity voluntarioJefe;
-    @ManyToOne
+
+    @ManyToOne()
     @JsonBackReference
     @JoinColumn(name = "id_organizacion")
     private OrganizacionEntity organizacion;
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+
+    @ManyToMany()
     @JoinTable(
         name="sede_envio",
         joinColumns=@JoinColumn(name="id_sede"),
         inverseJoinColumns=@JoinColumn(name="id_envio")
     )
     private Set<EnvioEntity> envios;
-    @OneToMany(mappedBy = "sede", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+
+    @OneToMany(mappedBy = "sede", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<SocioEntity> socios;
+
+    @OneToMany(mappedBy = "sede")
+    @JsonManagedReference
+    private List<VoluntarioEntity> voluntarios;
 }
