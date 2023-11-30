@@ -79,7 +79,8 @@ public class SedeServiceImpl implements SedeService{
         }
     }
 
-    public SedeEntity updateById(SedeDTO sedeDTO) { 
+    @Override
+    public SedeDTO updateById(SedeDTO sedeDTO) { 
         try {
             SedeEntity sedeExistente = sedeRepository.findById(sedeDTO.getId())
                     .orElseThrow(() -> new NotFoundException());
@@ -98,8 +99,9 @@ public class SedeServiceImpl implements SedeService{
                         .orElseThrow(() -> new NotFoundException());
                 sedeExistente.setVoluntarioJefe(nuevoVoluntarioJefe);
             }
-
-            return sedeRepository.save(sedeExistente);
+            SedeEntity sedeActualizada = sedeRepository.save(sedeExistente);
+            SedeDTO sedeReturn = sedeDTOConverter.convertToDTO(sedeActualizada);
+            return sedeReturn;
         } catch (Exception e) {
         }
         return null;

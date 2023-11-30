@@ -3,7 +3,6 @@ package com.proyectouts.adminong.services;
 import java.util.List;
 
 import com.proyectouts.adminong.dto.SedeDTO;
-import com.proyectouts.adminong.repositories.entities.SedeEntity;
 
 public interface SedeService {
 
@@ -15,6 +14,6 @@ public interface SedeService {
 
     SedeDTO findById(Long id);
 
-    SedeEntity updateById(SedeDTO sedeDTO);
+    SedeDTO updateById(SedeDTO sedeDTO);
     
 }

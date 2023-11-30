@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectouts.adminong.dto.SedeDTO;
-import com.proyectouts.adminong.repositories.entities.SedeEntity;
 import com.proyectouts.adminong.services.SedeService;
 
 @RestController
@@ -47,9 +46,9 @@ public class SedeController {
     }
 
     @PutMapping("/{idSede}")
-    public ResponseEntity<SedeEntity> actualizarSede(@PathVariable Long idSede, @RequestBody SedeDTO sedeDTO) {
+    public ResponseEntity<SedeDTO> actualizarSede(@PathVariable Long idSede, @RequestBody SedeDTO sedeDTO) {
         sedeDTO.setId(idSede); // asegurar que el ID del DTO sea el mismo que el de la ruta
-        SedeEntity sedeActualizada = sedeService.updateById(sedeDTO);
+        SedeDTO sedeActualizada = sedeService.updateById(sedeDTO);
         return ResponseEntity.ok(sedeActualizada);
     }
     
