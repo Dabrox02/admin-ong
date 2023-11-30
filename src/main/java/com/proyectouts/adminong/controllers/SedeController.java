@@ -32,7 +32,7 @@ public class SedeController {
     }
 
     @GetMapping("/{idSede}")
-    public SedeEntity findById(@PathVariable Long idSede){
+    public SedeDTO findById(@PathVariable Long idSede){
         return sedeService.findById(idSede);        
     }
 

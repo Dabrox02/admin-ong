@@ -13,7 +13,7 @@ public interface SedeService {
 
     void deleteById(Long idSede);
 
-    SedeEntity findById(Long id);
+    SedeDTO findById(Long id);
 
     SedeEntity updateById(SedeDTO sedeDTO);
     

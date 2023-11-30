@@ -118,6 +118,12 @@ public class SocioServiceImpl implements SocioService{
         socioCuotaDTO.setSocios(sociosDTO);
         return socioCuotaDTO;
     }
+
+    @Override
+    public SocioDTO findById(Long idSocio) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
     
 
 

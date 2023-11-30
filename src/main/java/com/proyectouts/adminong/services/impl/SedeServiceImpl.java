@@ -54,8 +54,13 @@ public class SedeServiceImpl implements SedeService{
         return sedeEntities.stream().map(sede->sedeDTOConverter.convertToDTO(sede)).toList();
     }
 
-    public SedeEntity findById(Long id) {
-        return sedeRepository.findById(id).orElse(null);
+    @Override
+    public SedeDTO findById(Long id) {
+        SedeEntity sedeBuscada = sedeRepository.findById(id).orElse(null);
+        if(sedeBuscada != null){    
+            return sedeDTOConverter.convertToDTO(sedeBuscada);
+        }
+        return null;
     }
     
     @Override
