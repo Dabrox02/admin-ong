@@ -75,7 +75,6 @@ public class SocioServiceImpl implements SocioService{
             throw new IllegalArgumentException("El teléfono del socio no puede ser nulo o vacío");
         }
         SedeEntity sedeEntity = sedeRepository.findById(socioDTO.getSedeId()).orElse(null);
-        System.out.println("Sede es "+ sedeEntity.getPais());
         socioEntity.setSede(sedeEntity);
         SocioEntity socioGuardado = socioRepository.save(socioEntity);
         cuotaDTO.setSocioId(socioGuardado.getId());

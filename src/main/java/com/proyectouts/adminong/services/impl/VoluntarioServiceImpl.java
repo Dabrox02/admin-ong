@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.proyectouts.adminong.config.VoluntarioDTOConverter;
 import com.proyectouts.adminong.dto.VoluntarioDTO;
+import com.proyectouts.adminong.repositories.SedeRepository;
 import com.proyectouts.adminong.repositories.VoluntarioRepository;
+import com.proyectouts.adminong.repositories.entities.SedeEntity;
 import com.proyectouts.adminong.repositories.entities.VoluntarioEntity;
 import com.proyectouts.adminong.services.VoluntarioService;
 
@@ -21,12 +23,51 @@ public class VoluntarioServiceImpl implements VoluntarioService{
     private VoluntarioRepository voluntarioRepository;
 
     @Autowired
+    private SedeRepository sedeRepository;
+
+    @Autowired
     private VoluntarioDTOConverter voluntarioDTOConverter;
 
     @Override
     public void save(VoluntarioDTO voluntarioDTO) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        VoluntarioEntity voluntarioEntity = voluntarioDTOConverter.convertToEntity(voluntarioDTO);
+        if (voluntarioEntity.getNombres() == null || voluntarioEntity.getNombres().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del socio no puede ser nulo o vacío");
+        }
+        
+        if (voluntarioEntity.getApellidos() == null || voluntarioEntity.getApellidos().isEmpty()) {
+            throw new IllegalArgumentException("El apellido del socio no puede ser nulo o vacío");
+        }
+        
+        if (voluntarioEntity.getEmail() == null || voluntarioEntity.getEmail().isEmpty()) {
+            throw new IllegalArgumentException("El email del socio no puede ser nulo o vacío");
+        }
+        
+        if (voluntarioEntity.getTelefono() == null || voluntarioEntity.getTelefono().isEmpty()) {
+            throw new IllegalArgumentException("El teléfono del socio no puede ser nulo o vacío");
+        }
+
+        if (voluntarioEntity.getDisponibilidad() == null 
+        || voluntarioEntity.getDisponibilidad().isEmpty() 
+        || (!voluntarioEntity.getDisponibilidad().equalsIgnoreCase("si")
+        && !voluntarioEntity.getDisponibilidad().equalsIgnoreCase("no"))) {
+            throw new IllegalArgumentException("Disponibilidad debe ser si o no: " + voluntarioEntity.getDisponibilidad());
+        }
+
+        if (voluntarioEntity.getTipoVoluntario() == null 
+        || voluntarioEntity.getTipoVoluntario().isEmpty() 
+        || (!voluntarioEntity.getTipoVoluntario().equalsIgnoreCase("administrativo")
+        && !voluntarioEntity.getTipoVoluntario().equalsIgnoreCase("sanitario"))) {
+            throw new IllegalArgumentException("Tipo Voluntario debe ser sanitario o administrativo");
+        }
+
+        SedeEntity sedeEntity = sedeRepository.findById(voluntarioDTO.getSedeId()).orElse(null);
+        if(sedeEntity == null){
+            throw new IllegalArgumentException("Sede no existente");
+        }
+
+        voluntarioEntity.setSede(sedeEntity);
+        voluntarioRepository.save(voluntarioEntity);
     }
 
     @Override

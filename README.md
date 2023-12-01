@@ -17,8 +17,8 @@
 - Listar por tipo de cuota - LISTA
 
 ### VOLUNTARIO
-- Registrar Voluntario
-- Consultar x id   - LISTA
+- Registrar Voluntario - LISTA
+- Consultar x id - LISTA
 - Actualizar x id
 - Eliminar un voluntario  - LISTA
 - Listar por profesion
