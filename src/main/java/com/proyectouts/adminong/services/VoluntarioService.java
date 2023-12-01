@@ -16,4 +16,8 @@ public interface VoluntarioService {
 
     VoluntarioDTO updateById(VoluntarioDTO voluntarioDTO);
 
+    List<VoluntarioDTO> findVoluntarioBySede(Long idSede);
+
+    List<VoluntarioDTO> findVoluntarioByProfesion(String profesion);
+
 }

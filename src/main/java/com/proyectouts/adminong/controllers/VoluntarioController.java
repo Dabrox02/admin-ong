@@ -33,6 +33,16 @@ public class VoluntarioController {
         return voluntarioService.findById(idVoluntario);
     }
 
+    @GetMapping("/sede/{idSede}")
+    public List<VoluntarioDTO> findVoluntariosBySede(@PathVariable Long idSede){
+        return voluntarioService.findVoluntarioBySede(idSede);
+    }
+
+    @GetMapping("/profesion/{profesion}")
+    public List<VoluntarioDTO> findVoluntariosByProfesion(@PathVariable String profesion){
+        return voluntarioService.findVoluntarioByProfesion(profesion);
+    }
+
     @PostMapping("/")
     public void save(@RequestBody VoluntarioDTO voluntarioDTO){
         voluntarioService.save(voluntarioDTO);

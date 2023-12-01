@@ -20,9 +20,9 @@
 - Registrar Voluntario - LISTA
 - Consultar x id - LISTA
 - Actualizar x id - LISTA
-- Eliminar un voluntario  - LISTA
-- Listar por profesion
-- Listar por sede
+- Eliminar un voluntario - LISTA
+- Listar por profesion - LISTA
+- Listar por sede - LISTA
 
 ### ENVIOS AYUDA
 - Registrar un envio

@@ -137,4 +137,22 @@ public class VoluntarioServiceImpl implements VoluntarioService{
         }
         return null;
     }
+
+    @Override
+    public List<VoluntarioDTO> findVoluntarioBySede(Long idSede) {
+        List<VoluntarioEntity> voluntarioEntities = voluntarioRepository.findByIdSede(idSede);
+        List<VoluntarioDTO> voluntarioDTOs = voluntarioEntities.stream()
+        .map(voluntario -> voluntarioDTOConverter.convertToDTO(voluntario))
+        .toList();
+        return voluntarioDTOs;
+    }
+
+    @Override
+    public List<VoluntarioDTO> findVoluntarioByProfesion(String profesion) {
+        List<VoluntarioEntity> voluntarioEntities = voluntarioRepository.findByProfesion(profesion);
+        List<VoluntarioDTO> voluntarioDTOs = voluntarioEntities.stream()
+        .map(voluntario -> voluntarioDTOConverter.convertToDTO(voluntario))
+        .toList();
+        return voluntarioDTOs;
+    }
 }
