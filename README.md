@@ -19,7 +19,7 @@
 ### VOLUNTARIO
 - Registrar Voluntario - LISTA
 - Consultar x id - LISTA
-- Actualizar x id
+- Actualizar x id - LISTA
 - Eliminar un voluntario  - LISTA
 - Listar por profesion
 - Listar por sede

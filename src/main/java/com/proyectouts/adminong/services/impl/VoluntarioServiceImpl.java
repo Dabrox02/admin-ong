@@ -99,10 +99,42 @@ public class VoluntarioServiceImpl implements VoluntarioService{
 
     @Override
     public VoluntarioDTO updateById(VoluntarioDTO voluntarioDTO) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateById'");
+        try {
+            VoluntarioEntity voluntarioEntity = voluntarioRepository.findById(voluntarioDTO.getId()).orElseThrow(() -> new NotFoundException());
+            voluntarioEntity.setDni(voluntarioDTO.getDni() != null ? voluntarioDTO.getDni() : voluntarioEntity.getDni());
+            voluntarioEntity.setNombres(voluntarioDTO.getNombres() != null ? voluntarioDTO.getNombres() : voluntarioEntity.getNombres());
+            voluntarioEntity.setApellidos(voluntarioDTO.getApellidos() != null ? voluntarioDTO.getApellidos() : voluntarioEntity.getApellidos());
+            voluntarioEntity.setEmail(voluntarioDTO.getEmail() != null ? voluntarioDTO.getEmail() : voluntarioEntity.getEmail());
+            voluntarioEntity.setTelefono(voluntarioDTO.getTelefono() != null ? voluntarioDTO.getTelefono() : voluntarioEntity.getTelefono());
+            voluntarioEntity.setProfesion(voluntarioDTO.getProfesion() != null ? voluntarioDTO.getProfesion() : voluntarioEntity.getProfesion());
+            
+            if  (voluntarioDTO.getDisponibilidad() != null) {
+                if(!voluntarioDTO.getDisponibilidad().equalsIgnoreCase("si")
+                && !voluntarioDTO.getDisponibilidad().equalsIgnoreCase("no")){
+                    throw new IllegalArgumentException("Disponibilidad debe ser si o no: " + voluntarioDTO.getDisponibilidad());
+                }else{
+                    voluntarioEntity.setDisponibilidad(voluntarioDTO.getDisponibilidad() != null ? voluntarioDTO.getDisponibilidad() : voluntarioEntity.getDisponibilidad());
+                }
+            }
+
+            if (voluntarioDTO.getTipoVoluntario() != null) {
+                if(!voluntarioDTO.getTipoVoluntario().equalsIgnoreCase("administrativo")
+                    && !voluntarioDTO.getTipoVoluntario().equalsIgnoreCase("sanitario")){
+                    throw new IllegalArgumentException("Tipo Voluntario debe ser sanitario o administrativo");
+                }else{
+                    voluntarioEntity.setTipoVoluntario(voluntarioDTO.getTipoVoluntario() != null ? voluntarioDTO.getTipoVoluntario() : voluntarioEntity.getTipoVoluntario());
+                }
+            }
+            
+            if(voluntarioDTO.getSedeId() != null){
+                SedeEntity sedeExistente = sedeRepository.findById(voluntarioDTO.getSedeId()).orElseThrow(() -> new NotFoundException());
+                voluntarioEntity.setSede(sedeExistente);
+            }
+            VoluntarioEntity voluntarioActualizado = voluntarioRepository.save(voluntarioEntity);
+            VoluntarioDTO voluntarioReturn = voluntarioDTOConverter.convertToDTO(voluntarioActualizado);
+            return voluntarioReturn;
+        } catch (NotFoundException e) {
+        }
+        return null;
     }
-    
-
-
 }
