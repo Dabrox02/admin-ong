@@ -18,9 +18,9 @@
 
 ### VOLUNTARIO
 - Registrar Voluntario
-- Consultar x id   
-- Actualizar x id 
-- Eliminar un voluntario
+- Consultar x id   - LISTA
+- Actualizar x id
+- Eliminar un voluntario  - LISTA
 - Listar por profesion
 - Listar por sede
 

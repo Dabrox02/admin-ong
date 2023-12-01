@@ -67,8 +67,6 @@ public class SedeServiceImpl implements SedeService{
     @Transactional
     public void deleteById(Long idSede) {
         SedeEntity sede = sedeRepository.findById(idSede).orElse(null);
-        System.out.println("=============================== SEDE ==================================");
-        System.out.println(sede.getEnvios());
         if(sede != null){
             List<VoluntarioEntity> voluntarios = sede.getVoluntarios();
             for (VoluntarioEntity voluntario : voluntarios) {
