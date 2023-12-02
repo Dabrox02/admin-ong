@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.proyectouts.adminong.dto.EnvioDTO;
+import com.proyectouts.adminong.dto.EnvioDTOFull;
 import com.proyectouts.adminong.services.EnvioService;
 
 @RestController
@@ -18,7 +19,7 @@ public class EnvioController {
     private EnvioService envioService;
 
     @GetMapping("/id/{idEnvio}")
-    public EnvioDTO findEnvioById(@PathVariable Long idEnvio){
+    public EnvioDTOFull findEnvioById(@PathVariable Long idEnvio){
         return envioService.findById(idEnvio);
     }
 

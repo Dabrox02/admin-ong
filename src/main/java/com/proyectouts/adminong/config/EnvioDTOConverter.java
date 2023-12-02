@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.proyectouts.adminong.dto.EnvioDTO;
+import com.proyectouts.adminong.dto.EnvioDTOFull;
 import com.proyectouts.adminong.repositories.entities.EnvioEntity;
 
 @Component
@@ -13,6 +14,10 @@ public class EnvioDTOConverter {
 
     public EnvioDTO convertToDTO(EnvioEntity envioEntity) {
         return dbm.map(envioEntity, EnvioDTO.class);
+    }
+
+    public EnvioDTOFull convertToDTOFull(EnvioEntity envioEntity){
+        return dbm.map(envioEntity, EnvioDTOFull.class);
     }
     
     public EnvioEntity convertToEntity(EnvioDTO envioDTO) {

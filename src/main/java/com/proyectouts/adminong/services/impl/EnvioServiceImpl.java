@@ -10,6 +10,7 @@ import com.proyectouts.adminong.config.CargaDTOConverter;
 import com.proyectouts.adminong.config.EnvioDTOConverter;
 import com.proyectouts.adminong.dto.CargaDTO;
 import com.proyectouts.adminong.dto.EnvioDTO;
+import com.proyectouts.adminong.dto.EnvioDTOFull;
 import com.proyectouts.adminong.repositories.CargaRepository;
 import com.proyectouts.adminong.repositories.EnvioRepository;
 import com.proyectouts.adminong.repositories.RefugioRepository;
@@ -92,15 +93,15 @@ public class EnvioServiceImpl implements EnvioService{
     }
 
     @Override
-    public EnvioDTO findById(Long idEnvio) {
+    public EnvioDTOFull findById(Long idEnvio) {
         EnvioEntity envioEntity = envioRepository.findById(idEnvio).orElse(null);
         if(envioEntity != null){
-            EnvioDTO envioDTO = envioDTOConverter.convertToDTO(envioEntity);
-            List<Long> sedes = envioRepository.findSedesByIdEnvio(envioDTO.getId());
+            EnvioDTOFull envioDTOFull = envioDTOConverter.convertToDTOFull(envioEntity);
+            List<Long> sedes = envioRepository.findSedesByIdEnvio(envioDTOFull.getId());
             if(!sedes.isEmpty()){
-                envioDTO.setSedes(sedes);
+                envioDTOFull.setSedes(sedes);
             }
-            return envioDTO;
+            return envioDTOFull;
         }
         return null;
     }
