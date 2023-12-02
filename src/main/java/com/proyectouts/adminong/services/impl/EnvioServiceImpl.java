@@ -13,9 +13,11 @@ import com.proyectouts.adminong.dto.EnvioDTO;
 import com.proyectouts.adminong.repositories.CargaRepository;
 import com.proyectouts.adminong.repositories.EnvioRepository;
 import com.proyectouts.adminong.repositories.RefugioRepository;
+import com.proyectouts.adminong.repositories.SedeRepository;
 import com.proyectouts.adminong.repositories.entities.CargaEntity;
 import com.proyectouts.adminong.repositories.entities.EnvioEntity;
 import com.proyectouts.adminong.repositories.entities.RefugioEntity;
+import com.proyectouts.adminong.repositories.entities.SedeEntity;
 import com.proyectouts.adminong.services.EnvioService;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -32,6 +34,9 @@ public class EnvioServiceImpl implements EnvioService{
 
     @Autowired
     private CargaRepository cargaRepository;
+
+    @Autowired
+    private SedeRepository sedeRepository;
 
     @Autowired
     private EnvioDTOConverter envioDTOConverter;
@@ -53,6 +58,15 @@ public class EnvioServiceImpl implements EnvioService{
                     .orElseThrow(() -> new EntityNotFoundException("Refugio no encontrado con ID: " + envioDTO.getIdRefugio()));
             envioEntity.setRefugio(refugioEntity);
         }
+
+        if (envioDTO.getSedes() != null && !envioDTO.getSedes().isEmpty()) {
+            for (Long sedeId : envioDTO.getSedes()) {
+                SedeEntity sedeEntity = sedeRepository.findById(sedeId)
+                        .orElseThrow(() -> new EntityNotFoundException("Sede no encontrada con ID: " + sedeId));
+                envioEntity.getSedes().add(sedeEntity);
+            }
+        }
+
         EnvioEntity envioGuardado = envioRepository.save(envioEntity);
 
         List<CargaEntity> cargaEntities = new ArrayList<>();
@@ -78,7 +92,16 @@ public class EnvioServiceImpl implements EnvioService{
     }
 
     @Override
-    public EnvioDTO findById(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public EnvioDTO findById(Long idEnvio) {
+        EnvioEntity envioEntity = envioRepository.findById(idEnvio).orElse(null);
+        if(envioEntity != null){
+            EnvioDTO envioDTO = envioDTOConverter.convertToDTO(envioEntity);
+            List<Long> sedes = envioRepository.findSedesByIdEnvio(envioDTO.getId());
+            if(!sedes.isEmpty()){
+                envioDTO.setSedes(sedes);
+            }
+            return envioDTO;
+        }
+        return null;
     }
 }

@@ -11,5 +11,6 @@ public class EnvioDTO {
     private String fechaSalida;
     private Long idRefugio;
     private List<CargaDTO> cargas;
-    
+    private List<Long> sedes;
+
 }

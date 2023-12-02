@@ -6,7 +6,7 @@ public interface EnvioService {
     
     EnvioDTO save(EnvioDTO envioDTOCargaRefugio);
 
-    void deleteById(Long id);
+    void deleteById(Long idEnvio);
 
-    EnvioDTO findById(Long id);
+    EnvioDTO findById(Long idEnvio);
 }
