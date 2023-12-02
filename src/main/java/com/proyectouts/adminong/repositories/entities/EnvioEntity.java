@@ -25,7 +25,7 @@ public class EnvioEntity {
     private Date fechaSalida;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_refugio")
+    @JoinColumn(name = "id_refugio", nullable = true)
     private RefugioEntity refugio;
 
     @ManyToMany()
